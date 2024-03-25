@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Factures ASCOP</title>
+    <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="GenFact.css">
+</head>
+<body>
+    
+    <form class="form" id="facture-form">
+        <div class="form-title"><span>ASCOP SARL</span></div>
+         <div class="title-2"><span>Générateur de Facture</span></div>
+
+         <div class="input-container">
+         <label for="vendeur">Choisissez l'acheteur :</label>
+            <select id="vendeur" required>
+                <option value="">- - - -</option>
+                <!-- Options du vendeur -->
+                <option value="JIEERYA">JIEERYA</option>
+                <option value="STAR_RECORD">STAR_RECORD</option>
+                <option value="SABRY TAHA MAHMOUD">SABRY TAHA MAHMOUD</option>
+                <option value="JIN LIWEI">JIN LIWEI</option>
+                <option value="LEAFWOO TRADING">LEAFWOO TRADING</option>
+                <option value="YANG YIJIANG">YANG YIJIANG</option>
+                <option value="LITERIE ET CONNEX">LITERIE ET CONNEX</option>
+                <option value="JIA TINGKAI">JIA TINGKAI</option>
+                <option value="APOLLO GRAPHICS">APOLLO GRAPHICS</option>
+                <option value="AMBASSA YODI">AMBASSA YODI</option>
+                <option value="CHEN XUEQIN">CHEN XUEQIN</option>
+                <option value="RAINBOW CAIXIA">RAINBOW CAIXIA</option>
+                <option value="PEINTURE GLOBALE">PEINTURE GLOBALE</option>
+                <option value="ZHANG SEN">ZHANG SEN</option>
+                <option value="YESON SARL">YESON SARL</option>
+                <option value="ZHAO WUYUN">ZHAO WUYUN</option>
+            </select>
+            <span> </span>
+         </div>
+
+         <div class="input-container">
+           <input class="input-mail" type="number" id="cible" required placeholder="Total Montant HT souhaité (Environ...)">
+           <span> </span>
+         </div>
+
+         <div class="input-container">
+            <input class="input-mail" placeholder="Période (sélectionnez le mois et l'année)" type="month" id="periode" required>
+            <input class="input-mail" placeholder="Période (sélectionnez le mois et l'année)" type="hidden" id="mois-annee" name="mois-annee">
+            <span> </span>
+          </div>
+
+          <div class="input-container">
+            <input class="input-mail" placeholder="Montant TTC minimum"type="number" id="montant-ttc-min" required>
+            <span> </span>
+          </div>
+
+          <div class="input-container">
+            <input class="input-mail" placeholder="Montant TTC maximum" type="number" id="montant-ttc-max" required>
+            <span> </span>
+          </div>
+   
+         <section class="bg-stars">
+           <span class="star"></span>
+           <span class="star"></span>
+           <span class="star"></span>
+           <span class="star"></span>
+           <span class="star"></span>
+           <span class="star"></span>
+           <span class="star"></span>
+           <span class="star"></span>
+         </section>
+
+         <button type="submit" class="submit">
+           <span class="sign-text">Générer Factures</span>
+         </button>
+    </form>
+    <div id="messages" class="center-text">     
+    </div>
+    <section id="factures">
+        <h2>Factures Générées</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Vendeur:</th>
+                    <th><b><p id="vendeur-name"></p></b></th>
+                    <th>Période:</th>
+                    <th><b><p id="moment"></p></b></th>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <th>Nom du Client</th>
+                    <th>DESIGNATIONS</th>
+                    <th>PU</th>
+                    <th>QTE</th>
+                    <th>MONTANT</th>
+                    <th>Montant_HT</th>
+                    <th>TVA</th>
+                    <th>P/A</th>
+                    <th>Montant TTC</th>
+                </tr>
+            </thead>
+            <tbody id="facture-list"></tbody>
+        </table>
+    </section>
+    <div class="center-text">
+        <button id="export-btn"></button>
+    </div>
+    <script src="GenFact.js"></script>
+</body>
+</html>
+
